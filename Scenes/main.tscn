@@ -1,0 +1,77 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://script/playbtncallanimation.gd" type="Script" id=1]
+[ext_resource path="res://script/title.gd" type="Script" id=2]
+[ext_resource path="res://animaciones/playbtnstart.tres" type="Animation" id=3]
+[ext_resource path="res://sprites/title2.png" type="Texture" id=4]
+[ext_resource path="res://sprites/pLAY2.png" type="Texture" id=5]
+[ext_resource path="res://sprites/bkground.png" type="Texture" id=6]
+[ext_resource path="res://sprites/pLAY.png" type="Texture" id=7]
+[ext_resource path="res://sprites/title1.png" type="Texture" id=8]
+[ext_resource path="res://animaciones/startgame.tres" type="Animation" id=9]
+[ext_resource path="res://script/PlayBtn.gd" type="Script" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "idletitle",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 9.34387, 4.00452 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 168.931, 316.057 )
+current = true
+
+[node name="bkground" type="Sprite" parent="."]
+position = Vector2( 167.545, 313.997 )
+scale = Vector2( 1.07171, 1.06314 )
+texture = ExtResource( 6 )
+
+[node name="TitleSprite" type="Sprite" parent="."]
+position = Vector2( 167.604, 143.31 )
+script = ExtResource( 2 )
+
+[node name="title" type="AnimatedSprite" parent="TitleSprite"]
+position = Vector2( 5.34576, -5.40331 )
+scale = Vector2( 2.57539, 2.42535 )
+frames = SubResource( 1 )
+animation = "idletitle"
+frame = 1
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TitleSprite"]
+anims/startgame = ExtResource( 9 )
+
+[node name="PlayBtn" type="Button" parent="."]
+margin_left = 97.4326
+margin_top = 441.719
+margin_right = 230.433
+margin_bottom = 516.719
+focus_mode = 0
+flat = true
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="playbtno" type="AnimatedSprite" parent="PlayBtn"]
+position = Vector2( 67.5977, 33.7794 )
+frames = SubResource( 2 )
+playing = true
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayBtn/playbtno"]
+anims/playbtnstart = ExtResource( 3 )
+[connection signal="pressed" from="PlayBtn" to="PlayBtn" method="_on_Button_pressed"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://sprites/bkground.png" type="Texture" id=1]
+[ext_resource path="res://script/instance.gd" type="Script" id=2]
+[ext_resource path="res://script/time.gd" type="Script" id=4]
+[ext_resource path="res://script/timercounter.gd" type="Script" id=5]
+[ext_resource path="res://Rocky Stone.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 45
+font_data = ExtResource( 6 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="bkground" type="Sprite" parent="."]
+position = Vector2( 179.317, 321.657 )
+scale = Vector2( 1.08409, 1.03153 )
+texture = ExtResource( 1 )
+script = ExtResource( 5 )
+
+[node name="time" type="Label" parent="."]
+margin_left = 171.135
+margin_top = 41.8179
+margin_right = 270.135
+margin_bottom = 80.8179
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

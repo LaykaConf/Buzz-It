@@ -1,0 +1,38 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="Buzz-It"
+run/main_scene="res://Scenes/main.tscn"
+
+[autoload]
+
+Global_Var="*res://script/global_var.gd"
+
+[display]
+
+window/size/width=360
+window/size/height=640
+window/per_pixel_transparency/allowed=true
+window/per_pixel_transparency/enabled=true
+
+[rendering]
+
+quality/2d/use_nvidia_rect_flicker_workaround=true
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=0
+quality/2d/use_pixel_snap=true
+environment/default_environment="res://default_env.tres"

@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://sprites/mosca 1.png" type="Texture" id=1]
+[ext_resource path="res://sprites/mosca 2.png" type="Texture" id=2]
+[ext_resource path="res://script/retry.gd" type="Script" id=3]
+[ext_resource path="res://animaciones/entrada.tres" type="Animation" id=4]
+[ext_resource path="res://animaciones/idelfli.tres" type="Animation" id=5]
+[ext_resource path="res://script/retrybutno.gd" type="Script" id=6]
+[ext_resource path="res://animaciones/adios.tres" type="Animation" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="AnimatedSprite" type="AnimatedSprite"]
+position = Vector2( 186.801, 700.595 )
+z_index = 2
+frames = SubResource( 1 )
+playing = true
+script = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = -25.7838
+margin_top = -26.8108
+margin_right = 27.2162
+margin_bottom = 32.1892
+focus_mode = 0
+flat = true
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/adios = ExtResource( 7 )
+anims/entrada = ExtResource( 4 )
+anims/idelfli = ExtResource( 5 )
